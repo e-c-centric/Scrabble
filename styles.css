@@ -1,0 +1,16 @@
+#game-board {
+    width: 600px; /* Adjust the width as per your preference */
+    height: 600px; /* Adjust the height as per your preference */
+    margin: 0 auto; /* Centers the game board horizontally */
+    background-color: #eaeaea; /* Set the background color of the game board */
+    display: grid;
+    grid-template-columns: repeat(15, 1fr); /* Creates 15 columns */
+    grid-template-rows: repeat(15, 1fr); /* Creates 15 rows */
+    gap: 1px; /* Gap between cells */
+  }
+  
+  .game-cell {
+    background-color: #fff; /* Set the background color of each cell */
+    border: 1px solid #ccc; /* Add borders to each cell */
+  }
+  

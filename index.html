@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Scrabble Game</title>
+    <link rel="stylesheet" type="text/css" href="styles.css">
+</head>
+
+<body>
+    <div id="game-board">
+        <!-- The game board will be inserted here -->
+    </div>
+    <script>
+        // Generate the game board
+        const gameBoard = document.getElementById('game-board');
+        const boardSize = 15; // Number of rows and columns in the game board
+
+        for (let row = 0; row < boardSize; row++) {
+            for (let col = 0; col < boardSize; col++) {
+                const cell = document.createElement('div');
+                cell.classList.add('game-cell');
+                cell.setAttribute('id', `cell-${row}-${col}`); // Unique identifier for each cell
+                gameBoard.appendChild(cell);
+            }
+
+        }
+        // Add this code after generating the game board
+
+        let selectedTile = null; // Store the currently selected tile
+
+        function handleTileClick(event) {
+            const clickedTile = event.target;
+
+            // If a tile is already selected, place it on the clicked cell
+            if (selectedTile) {
+                const targetCell = clickedTile.parentElement;
+                targetCell.appendChild(selectedTile);
+                selectedTile = null;
+            } else {
+                // Select the clicked tile
+                selectedTile = clickedTile;
+            }
+        }
+
+        // Attach the event listener to each game cell
+        const gameCells = document.getElementsByClassName('game-cell');
+        for (let cell of gameCells) {
+            cell.addEventListener('click', handleTileClick);
+        }
+
+        // Create a valid word list
+        const validWords = ['apple', 'banana', 'orange', 'grape'];
+
+        function validateWord(word) {
+            return validWords.includes(word.toLowerCase());
+        }
+
+
+    </script>
+
+</body>
+
+</html>
